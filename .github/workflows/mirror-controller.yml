@@ -13,7 +13,8 @@ jobs:
     steps:
       - uses: actions/checkout@v4
       - id: set
-        run: echo "matrix=$(jq -c '{include: .}' repos.json)" >> "$GITHUB_OUTPUT"
+        run: |
+          echo "matrix=$(jq -c '{include: .}' repos.json)" >> "$GITHUB_OUTPUT"
 
   mirror:
     needs: load
