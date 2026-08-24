@@ -31,7 +31,7 @@ jobs:
         steps:
             - name: Mirror ${{ inputs.repo }}
               env:
-                BITBUCKET_TOKEN: ${{ secrets.BITTBUCKET_TOKEN }}
+                BITBUCKET_TOKEN: ${{ secrets.BITBUCKET_TOKEN }}
                 MIRROR_PAT: ${{ secrets.MIRROR_PAT }}
                 REPO: ${{ inputs.repo }}
                 WORKSPACE: ${{ inputs.workspace }}
