@@ -7,6 +7,10 @@ on:
                 description: 'The repository to mirror'
                 required: true
                 type: string
+            target_repo:
+                description: 'The target repository name'
+                required: true
+                type: string
             workspace:
                 description: 'The workspace for the mirror'
                 required: false
@@ -33,14 +37,15 @@ jobs:
               env:
                 BITBUCKET_TOKEN: ${{ secrets.BITBUCKET_TOKEN }}
                 MIRROR_PAT: ${{ secrets.MIRROR_PAT }}
-                REPO: ${{ inputs.repo }}
+                BITBUCKET_REPO: ${{ inputs.repo }}
+                TARGET_REPO: ${{ inputs.target_repo }}
                 WORKSPACE: ${{ inputs.workspace }}
                 TARGET_ORG: ${{ inputs.target_org }}
                 GIT_TERMINAL_PROMPT: 0
               run: |
                 set -euo pipefail
                 git clone --bare --quiet \
-                  "https://x-token-auth:${BITBUCKET_TOKEN}@bitbucket.org/${WORKSPACE}/${REPO}.git"
-                cd -- "${REPO}.git"
+                  "https://x-token-auth:${BITBUCKET_TOKEN}@bitbucket.org/${WORKSPACE}/${BITBUCKET_REPO}.git"
+                cd -- "${BITBUCKET_REPO}.git"
                 git push --mirror \
-                  "https://x-access-token:${MIRROR_PAT}@github.com/${TARGET_ORG}/${REPO}.git"
+                  "https://x-access-token:${MIRROR_PAT}@github.com/${TARGET_ORG}/${TARGET_REPO}.git"
