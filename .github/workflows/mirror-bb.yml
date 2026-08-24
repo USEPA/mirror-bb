@@ -9,8 +9,9 @@ on:
                 type: string
             target_repo:
                 description: 'The target repository name'
-                required: true
+                required: false
                 type: string
+                default: ''
             workspace:
                 description: 'The workspace for the mirror'
                 required: false
@@ -44,6 +45,7 @@ jobs:
                 GIT_TERMINAL_PROMPT: 0
               run: |
                 set -euo pipefail
+                TARGET_REPO="${TARGET_REPO:-$BITBUCKET_REPO}"
                 git clone --bare --quiet \
                   "https://x-token-auth:${BITBUCKET_TOKEN}@bitbucket.org/${WORKSPACE}/${BITBUCKET_REPO}.git"
                 cd -- "${BITBUCKET_REPO}.git"
