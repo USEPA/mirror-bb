@@ -1,0 +1,37 @@
+name: Mirror Bitbucket repos
+on:
+  schedule:
+    - cron: '0 * * * *'   # hourly
+  workflow_dispatch:
+
+jobs:
+  # Read repos.json and turn it into a matrix
+  load:
+    runs-on: ubuntu-latest
+    outputs:
+      matrix: ${{ steps.set.outputs.matrix }}
+    steps:
+      - uses: actions/checkout@v4
+      - id: set
+        run: echo "matrix=$(jq -c '{include: .}' repos.json)" >> "$GITHUB_OUTPUT"
+
+  mirror:
+    needs: load
+    runs-on: ubuntu-latest
+    strategy:
+      fail-fast: false        # one repo failing won't cancel the others
+      max-parallel: 4
+      matrix: ${{ fromJson(needs.load.outputs.matrix) }}
+    name: ${{ matrix.bitbucket }}
+    steps:
+      - name: Mirror clone from Bitbucket
+        run: |
+          git clone --mirror \
+            "https://x-token-auth:${{ secrets.BITBUCKET_TOKEN }}@${{ matrix.bitbucket }}" \
+            repo.git
+
+      - name: Push mirror to GitHub
+        working-directory: repo.git
+        run: |
+          git push --mirror \
+            "https://x-access-token:${{ secrets.MIRROR_PAT }}@${{ matrix.github }}"
