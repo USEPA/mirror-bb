@@ -18,7 +18,7 @@ on:
                 type: string
                 default: USEPA
         secrets:
-            BITTBUCKET_TOKEN:
+            BITBUCKET_TOKEN:
                     required: true
             MIRROR_PAT:
                     required: true
@@ -31,7 +31,7 @@ jobs:
         steps:
             - name: Mirror ${{ inputs.repo }}
               env:
-                BITTBUCKET_TOKEN: ${{ secrets.BITTBUCKET_TOKEN }}
+                BITBUCKET_TOKEN: ${{ secrets.BITTBUCKET_TOKEN }}
                 MIRROR_PAT: ${{ secrets.MIRROR_PAT }}
                 REPO: ${{ inputs.repo }}
                 WORKSPACE: ${{ inputs.workspace }}
@@ -40,7 +40,7 @@ jobs:
               run: |
                 set -euo pipefail
                 git clone --bare --quiet \
-                  "https://x-token-auth:${BITTBUCKET_TOKEN}@bitbucket.org/${WORKSPACE}/${REPO}.git"
+                  "https://x-token-auth:${BITBUCKET_TOKEN}@bitbucket.org/${WORKSPACE}/${REPO}.git"
                 cd -- "${REPO}.git"
                 git push --mirror \
                   "https://x-access-token:${MIRROR_PAT}@github.com/${TARGET_ORG}/${REPO}.git"
