@@ -1,4 +1,5 @@
 [
   { "bitbucket": "bitbucket.org/scidataexperts/amos-server.git", "github": "github.com/usepa/amos-server-bb.git" },
-  { "bitbucket": "bitbucket.org/scidataexperts/amos-ui.git", "github": "github.com/usepa/amos-ui-bb.git" }
+  { "bitbucket": "bitbucket.org/scidataexperts/amos-ui.git", "github": "github.com/usepa/amos-ui-bb.git" },
+  { "bitbucket": "bitbucket.org/scidataexperts/surro-sel.git", "github": "github.com/usepa/surro-sel-bb.git" }
 ]
