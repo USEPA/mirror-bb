@@ -30,6 +30,15 @@ jobs:
           git clone --mirror \
             "https://x-token-auth:${{ secrets.BITBUCKET_TOKEN }}@${{ matrix.bitbucket }}" \
             repo.git
+  
+      - name: Enable Git LFS
+        if: ${{ matrix.lfs == true }}
+        working-directory: repo.git
+        env:
+          URL: https://x-access-token:${{ secrets.MIRROR_PAT }}@${{ matrix.github }}
+        run: |
+          git lfs migrate import --everything --above=100MB
+          git lfs push --all "$URL"
 
       - name: Push mirror to GitHub
         working-directory: repo.git
