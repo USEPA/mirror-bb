@@ -32,12 +32,14 @@ jobs:
             repo.git
   
       - name: Enable Git LFS
-        if: ${{ matrix.lfs == true }}
         working-directory: repo.git
         env:
           URL: https://x-access-token:${{ secrets.MIRROR_PAT }}@${{ matrix.github }}
         run: |
-          git lfs migrate import --everything --above=100MB
+          git lfs fetch --all origin
+          if [ "${{ matrix.lfs }}" = "true" ]; then
+            git lfs migrate import --everything --above=100MB
+          fi
           git lfs push --all "$URL"
 
       - name: Push mirror to GitHub
