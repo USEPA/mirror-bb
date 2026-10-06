@@ -33,10 +33,15 @@ jobs:
   
       - name: Enable Git LFS
         working-directory: repo.git
+        shell: bash
         env:
           URL: https://x-access-token:${{ secrets.MIRROR_PAT }}@${{ matrix.github }}
         run: |
-          git lfs fetch --all origin
+          git lfs fetch --all origin 2>&1 | tee lfs-fetch.log || {
+          grep -q "\[404\]" lfs-fetch.log || exit 1 
+          echo "::warning::Git LFS object missing on Bitbucket; mirroring what exists"
+          git config lfs.allowincompletepush true
+          }
           if [ "${{ matrix.lfs }}" = "true" ]; then
             git lfs migrate import --everything --above=100MB
           fi
