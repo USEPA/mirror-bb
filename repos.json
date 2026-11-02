@@ -4,7 +4,6 @@
 	{ "bitbucket": "bitbucket.org/scidataexperts/chet-server", "github": "github.com/usepa/chet-server-bb"},
 	{ "bitbucket": "bitbucket.org/scidataexperts/aadashboard", "github": "github.com/usepa/aadashboard-bb", "lfs": true},
 	{ "bitbucket": "bitbucket.org/scidataexperts/models", "github": "github.com/usepa/models-bb"},
-	{ "bitbucket": "bitbucket.org/scidataexperts/oncologic", "github": "github.com/usepa/oncologic-bb"},
 	{ "bitbucket": "bitbucket.org/scidataexperts/corina", "github": "github.com/usepa/corina-bb"},
 	{ "bitbucket": "bitbucket.org/scidataexperts/epa", "github": "github.com/usepa/epa-bb"},
 	{ "bitbucket": "bitbucket.org/scidataexperts/padel", "github": "github.com/usepa/padel-bb"},
@@ -31,13 +30,14 @@
 	{ "bitbucket": "bitbucket.org/scidataexperts/pfas_atlas", "github": "github.com/usepa/pfas_atlas-bb"},
 	{ "bitbucket": "bitbucket.org/scidataexperts/pf_python_model_building", "github": "github.com/usepa/pf_python_model_building-bb"},
 	{ "bitbucket": "bitbucket.org/scidataexperts/chet-ui", "github": "github.com/usepa/chet-ui-bb"},
-	{ "bitbucket": "bitbucket.org/scidataexperts/deeprei", "github": "github.com/usepa/deeprei-bb"},
 	{ "bitbucket": "bitbucket.org/scidataexperts/core", "github": "github.com/usepa/core-bb"},
 	{ "bitbucket": "bitbucket.org/scidataexperts/clients", "github": "github.com/usepa/clients-bb"},
-	{ "bitbucket": "bitbucket.org/scidataexperts/auth", "github": "github.com/usepa/auth-bb"},
-	{ "bitbucket": "bitbucket.org/scidataexperts/models-api", "github": "github.com/usepa/models-api-bb"},
 	{ "bitbucket": "bitbucket.org/scidataexperts/model-service-common", "github": "github.com/usepa/model-service-common-bb"},
-	{ "bitbucket": "bitbucket.org/scidataexperts/pystdizer", "github": "github.com/usepa/pystdizer-bb"},
 	{ "bitbucket": "bitbucket.org/scidataexperts/clients-examples", "github": "github.com/usepa/clients-examples-bb"},
-	{ "bitbucket": "bitbucket.org/scidataexperts/predictor", "github": "github.com/usepa/predictor-bb"}
+	{ "bitbucket": "bitbucket.org/scidataexperts/genra", "github": "github.com/usepa/genra-bb"},
+	{ "bitbucket": "bitbucket.org/scidataexperts/genra_ui", "github": "github.com/usepa/genra_ui-bb"},
+	{"bitbucket": "bitbucket.org/scidataexperts/genra_api", "github": "github.com/usepa/genra_api-bb"},
+	{"bitbucket": "bitbucket.org/scidataexperts/genra_artifacts", "github": "github.com/usepa/genra_artifacts-bb"},
+	{"bitbucket": "bitbucket.org/scidataexperts/chemexpo", "github": "github.com/usepa/chemexpo-bb"},
+	{"bitbucket": "bitbucket.org/scidataexperts/feedback", "github": "github.com/usepa/feedback-bb"}
 ]
