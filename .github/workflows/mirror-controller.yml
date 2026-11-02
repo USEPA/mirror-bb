@@ -45,7 +45,6 @@ jobs:
           if [ "${{ matrix.lfs }}" = "true" ]; then
             git lfs migrate import --everything --above=100MB
           fi
-          git config lfs.locksverify false
           git lfs push --all "$URL"
 
       - name: Push mirror to GitHub
