@@ -37,7 +37,6 @@
 	{ "bitbucket": "bitbucket.org/scidataexperts/genra", "github": "github.com/usepa/genra-bb"},
 	{ "bitbucket": "bitbucket.org/scidataexperts/genra-ui", "github": "github.com/usepa/genra-ui-bb"},
 	{"bitbucket": "bitbucket.org/scidataexperts/genra-api", "github": "github.com/usepa/genra-api-bb"},
-	{"bitbucket": "bitbucket.org/scidataexperts/genra_artifacts", "github": "github.com/usepa/genra_artifacts-bb"},
 	{"bitbucket": "bitbucket.org/scidataexperts/chemexpo", "github": "github.com/usepa/chemexpo-bb"},
 	{"bitbucket": "bitbucket.org/scidataexperts/feedback", "github": "github.com/usepa/feedback-bb"}
 ]
